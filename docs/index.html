@@ -29,6 +29,7 @@
     <div id="app">
       
         <v-container class="mt-5">
+          現在： {{Object.keys(items).length}} 件
           <ul>
             <li v-for="(item, key) in items" :key="key">
               <a :href="item">

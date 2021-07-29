@@ -34,5 +34,8 @@ for i in range(len(files)):
 
         map[text] = "https://japanknowledge.com" + url
 
+size = len(map)
+print(size, int(size / 115805 * 100))
+
 with open('list.json', 'w') as f:
     json.dump(map, f, indent=4)
