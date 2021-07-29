@@ -12,11 +12,16 @@ for i in range(len(files)):
 
     file = files[i]
 
-    print(i+1, len(files))
+    if i % 100 == 0:
+        print(i+1, len(files))
 
     soup = bs4.BeautifulSoup(open(file), 'html.parser')
 
     div = soup.find(class_="prevNextList")
+
+    if not div:
+        print("err")
+        continue
 
     lis = div.find_all("li")
 
@@ -37,5 +42,5 @@ for i in range(len(files)):
 size = len(map)
 print(size, int(size / 115805 * 100))
 
-with open('list.json', 'w') as f:
+with open('docs/list.json', 'w') as f:
     json.dump(map, f, indent=4)
