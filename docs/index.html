@@ -48,7 +48,17 @@
               :headers="headers"
               :items="items"
               :search="search"
-            ></v-data-table>
+            >
+
+            <template v-slot:item.url="{ item }">
+              <a target="_blank" :href="item.url">{{item.url}}</a>
+            </template>
+          
+            <template v-slot:item.psnl="{ item }">
+              <a target="_blank" :href="item.url.replace('/lib/', '/psnl/')">{{item.url.replace("/lib/", "/psnl/")}}</a>
+            </template>
+
+          </v-data-table>
         </v-container>
     </div>
     <script>
@@ -60,7 +70,8 @@
             search: "",
             headers: [
               { text: 'Label', value: 'label' },
-              { text: 'URL', value: 'url' },
+              { text: 'JK Lib', value: 'url' },
+              { text: 'JK Personal', value: 'psnl' },
             ],
             items: []
           }
