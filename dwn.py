@@ -20,7 +20,7 @@ for i in range(0, end):
 
         print(url)
 
-        time.sleep(5)
+        time.sleep(1)
 
         res = requests.get(url)
 
